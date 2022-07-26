@@ -42,3 +42,71 @@ Strings support line breaks and escape sequences.
 bar"
 "foo\nbar"
 ```
+### Basic Operations
+#### Arithmetic
+Elixir supports the basic operators `+`,`-`,`*` and `/` as you would expect. It's important to remember that `/` will always return a float.
+```elixir
+2 + 2
+2 - 1
+2 * 5
+10 / 5 // 2.0
+```
+If you need integer division or the division remainder(i.e., modulo), Elixir comes with two helpful functions to achieve this.
+```elixir
+div(10, 5) // 2
+rem(10, 3) // 1
+```
+#### Boolean
+Elixir provides the `||`, `&&` and `!` boolean operators. These support any types.
+```elixir
+-20 || true  // -20
+fasle || 42  // 42
+42 && true   // true
+42 && nil    // nil
+!42          // false
+!false       // true
+```
+There are three additional operators whose first argument must be a boolean(`true` or `false`).
+```elixir
+true and 42   // 42
+false or true // true
+not false     // true
+42 and true   // error
+not 42        // error
+```
+Note: Elixir's `and` and `or` actually map to `andolso` and `orelse` in Erlang.
+#### Comparison
+Elixir comes with all the comparison operators we're used to: `==`, `!=`, `===`, `!==`, `>=`, `<=`, `<` and `>`.
+```elixir
+1 > 2  // false
+1 != 2 // true
+2 == 2 // true
+2 <= 3 // true
+```
+For strict comparison of integers and floats, use `===`.
+```elixir
+2 == 2.0  // true
+2 === 2.0 // false
+```
+An important feature of Elixir is that any two types can be compared; this is particularly useful in sorting. We don't need to memorize the sort order, but it is important to be aware of it.
+```elixir
+number < atom < reference < function < port < pid < tuple < map < list < bistring
+```
+This can lead to some interesting, yet valid comparisons you may not find in other languages.
+```elixir
+:hello > 999  // true
+{:hello, :world} > [1, 2, 3]  // false
+```
+#### String Interpolation
+If you've used Ruby, string interpolation in Elixir will look familiar.
+```elixir
+name = "Sean"
+"Hello #{name}" // Hello Sean
+```
+#### String Concatenation
+String concatenation uses the `<>` operator.
+```elixir
+name = "Sean"
+"Hello " <> name // Hello Sean
+```
+
