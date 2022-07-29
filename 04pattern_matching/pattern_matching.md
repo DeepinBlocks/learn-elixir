@@ -57,6 +57,15 @@ end
 greet.("Hello", "Sean")
 greet.("Mornin'", "Sean")
 greeting
+
+a = %{foo: "bar", baz: 5}
+a.foo
+a[:foo]
+%{foo: my_value, baz: my_value2} = a
+def hello(%{foo: x, baz: y} = a) do
+    IO.puts(x)
+    %{a | foo: x*2}
+end_
 ```
 Note in the `"Mornin'"` example that the reassignment of `greeting` to `"Mornin'"` only happens inside the function. 
 Outside the function `greeting` is still `Hello`.
