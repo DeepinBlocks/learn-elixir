@@ -337,6 +337,54 @@ def fact(_) do
   0
 end
 ```
+## Anonymous Functions
+### Validation
+Build a function that validates that a person's age is above 18.
+```elixir
+%{name: "Jack", age: 30}
+
+def validate(person) do
+  person.age > 18
+end
+
+def validate2(person) do
+  person.age > 20 and person.age < 60
+end
+```
+### Anonymous Functions
+```elixir
+fn (person) ->
+  person.age > 18
+end
+
+&(&1.age > 18)
+```
+```elixir
+def validate(person, validation) do
+  validation.(person)
+end
+
+person = %{name: "Jill", age: 19}
+Validation.validate(person, &(&1.age > 18))
+Validation.validate(person, &(&1.age > 20 and &1.age < 60))
+```
+### High Order Functions
+* Receive functions as arguments
+* Return functions
+### The Enum Module
+Take out all the odd numbers, multiply each number by itself and count the ones above 20.
+```elixir
+list = [1,2,3,4,5,6,7,8,9,19]
+
+def do_it(list) do
+  list
+  |> Enum.reject(&(is_odd(&1)))
+  |> Enum.map(&BasicMath.square/1)
+  |> Enum.count(&(&1 > 20))
+end
+
+do_it(list)
+```
 
 
 
