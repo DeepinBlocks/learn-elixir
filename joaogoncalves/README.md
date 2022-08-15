@@ -386,6 +386,59 @@ end
 do_it(list)
 ```
 
+## Recursion
+### An old function
+```elixir
+def fact(0) do
+  1
+end
 
+def fact(n) do
+  n * fact(n - 1)
+end
+```
+### Recursion
+* Method of dividing complex problems into smaller ones.
+* Define a base case.
+* Compute the solution converging towards the base case.
+### Base Case
+```elixir
+def fact(0) do
+  1
+end
+```
+### General function
+```elixir
+def fact(n) do
+  n * fact(n - 1)
+end
+```
+### A Different Problem
+Count the number of nodes in the graph.  
+![avatar](./imgs/tree.png)
+* Base case
+  * Nodes with no children yield count 1.
+```elixir
+def count(%{children: []}) do
+  1
+end
+```
+* General function
+  * Count the nodes of the first child and add them to the count of the nodes of the rest of the children.
+```elixir
+def count(%{children: children}) do
+  [first|rest] = children
+  count(first) + count(%{children: rest})
+end
+```
+```elixir
+defmodule Graph do
+  def count(%{children: []}), do: 1
+  def count(%{children: children}) do
+    [first|rest] = children
+    count(first) + count(%{children: rest})
+  end
+end
+```
 
 
