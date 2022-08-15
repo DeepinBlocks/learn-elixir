@@ -2,9 +2,9 @@
 ## Integers
 Support for binary, octal, and hexadecimal number comes built in.
 ```elixir
-0o644 # 420
+0o644 // 420
 420
-0x1F # 31
+0x1F // 31
 ```
 ## Floats
 In elixir, floating point numbers require a decimal after at least one digit; they have 64-bit double precision and support `e` for exponent values.
@@ -16,13 +16,13 @@ Elixir supports `true` and `false` as booleans; everything is truthy except for 
 ## Atoms
 An atom is a constant whose name is its value. If you're familiar with Ruby, these are synonymous with Symbols.
 ```elixir
-:foo = :bar # false
+:foo = :bar // false
 ```
 The booleans `true` and `false` ara also the atoms `:true` and `:false`, respectively.
 ```elixir
-is_atom(true)    # true
-is_boolean(true) # true
-:true === :true  # true
+is_atom(true)    // true
+is_boolean(true) // true
+:true === :true  // true
 ```
 Names of modules in Elixir are also atoms. `MyApp.MyModule` is a valid atom, even if no such module has been declared yet.
 ```elixir
