@@ -39,13 +39,13 @@
 ### Characteristics
 * Higher order functions:
   * Functions as return values and as parameters to other functions.
-![avatar](./imgs/func1.png)
+  * ![avatar](./imgs/func1.png)
 * Recursion:
   * Allowing a function to call itself or looping algorithms.
-![avatar](./imgs/func2.png)
+  * ![avatar](./imgs/func2.png)
 * Referential Transparency:
   * Some evaluation = some outcome
-![avatar](./imgs/func3.png)
+  * ![avatar](./imgs/func3.png)
 
 ## Basic Types and Operators
 * Literal types
@@ -62,7 +62,7 @@
   * 1.54932
   * 1.5e-15
 * Integer Bases
-![avatar](./imgs/intbases.png)
+  * ![avatar](./imgs/intbases.png)
 * Integer - Separator
   * 43312209
   * 43_312_209
@@ -70,7 +70,7 @@
 #### Operators
 ![avatar](./imgs/operators.png)
 * Integer Division Functions
-![avatar](./imgs/intdivision.png)
+  * ![avatar](./imgs/intdivision.png)
 #### boolean
 * True
   * Everything is truthy.
