@@ -432,13 +432,33 @@ def count(%{children: children}) do
 end
 ```
 ```elixir
+graph = %{
+  children: [
+    %{children: []},
+    %{children: []},
+    %{children: [
+      %{children: []},
+      %{children: []}
+    ]},
+    %{children: []}
+  ]
+}
+ 
 defmodule Graph do
-  def count(%{children: []}), do: 1
+  def count(%{children: []}) do
+    #IO.inspect(:inc);
+    1
+  end
   def count(%{children: children}) do
+    #IO.inspect(:yyyyyyyyyyyyyyyyyyyyyyyyyy)
     [first|rest] = children
+    #IO.inspect(first)
+    #IO.inspect(rest)
     count(first) + count(%{children: rest})
   end
 end
+
+graph |> Graph.count() # 7
 ```
 
 
