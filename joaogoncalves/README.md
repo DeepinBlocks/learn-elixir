@@ -555,6 +555,50 @@ def show_price(name, price) do
 end
 ```
 
+## Exception Handling
+Exception handing like this should be used only as last resort and never for control flow.
+```elixir
+def yell_at(name) do
+  try_do
+    "Hey #{String.upcase(name)}"
+  rescue
+    e -> "Hey stranger!"
+  end
+end
+```
+### Raising Exceptions
+```elixir
+defmodule MyError do
+  defexception message: "A strange error", 
+               number: 33
+end
+
+raise MyError, number: 1000
+```
+### Rescuing from Custom Exceptions
+```elixir
+def catch_me() do
+  try do
+    raise MyError, number: 9023
+  rescue
+    e in MyError -> e.number
+  after
+    IO.puts("I failed here")  
+  end
+end
+```
+### Throwing and Catching
+`throw/catch` is far more suited for this purpose.
+```elixir
+def catch_me() do
+  try do
+    throw %{number: 9023}
+  catch
+    e -> e.number
+  end
+end
+```
+
 
 
 
