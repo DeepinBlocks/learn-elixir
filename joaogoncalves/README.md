@@ -631,7 +631,23 @@ def write_list(path, list) do
 end
 ```
 
-
-
+## Creating an Application
+### The Application
+![avatar](./imgs/app.png)
+### Mix
+* Creating Applications
+* Run Tests
+* Compile Application
+* Import Dependencies
+* Compile Dependencies
+* Custom tasks
+### Creating an Application
+```
+mix new gif_generator
+iex -S mix
+GifGenerator.hello
+````
+### Anatomy of an Application
+![avatar](./imgs/appanatomy.png)
 
 
