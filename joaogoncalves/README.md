@@ -599,7 +599,13 @@ def catch_me() do
 end
 ```
 
-
+## IO
+### The Standard IO
+![avatar](./imgs/stdio.png)
+### IO Module
+![avatar](./imgs/iomodule.png)
+### ANSI Formatting
+![avatar](./imgs/ioansi.png)
 
 
 
