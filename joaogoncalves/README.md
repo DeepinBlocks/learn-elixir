@@ -461,4 +461,106 @@ end
 graph |> Graph.count() # 7
 ```
 
+## Conditions
+Classifying a list according to its size.
+```elixir
+def classify([]), do: :empty
+def classify([_]), do: :single
+def classify([_|_]), do: :multi
+```
+### Cond
+When an expression evaluates to true, the body is executed.
+```elixir
+cond do
+  expression -> body
+  expression -> body
+  # ...
+end
+```
+```elixir
+def discount(age) do
+  cond do
+    age < 12 -> 0.6
+    age >= 65 -> 0.4
+    true -> 0.0 # default case
+  end
+end
+```
+### Case
+When a pattern matches the value of the expression, the body is executed.
+```elixir
+case expression do
+  pattern -> body
+  pattern -> body
+  # ...
+end
+```
+```elixir
+def discount(category) do
+  case category do
+    :child -> 0.6
+    :senior -> 0.4
+    _ -> 0.0 # default case
+  end
+end
+```
+### If/Else
+When an expression evaluates to true, the `if_body` is executed, otherwise the `else_body` is executed (if present).
+```elixir
+if expression do
+  # if_body
+end
+if expression do
+  # if_body
+else
+  # else_body  
+end
+```
+When an expression evaluates to false, the `unless_body` is executed.
+```elixir
+unless expression do
+  # unless_body
+end
+```
+```elixir
+def show_price(name, price) do
+  discount = name
+    |> Customer.find
+    |> Customer.categorise
+    |> Pricing.discount
+    
+  price * (1.0 - discount)
+end
+```
+### With
+If all patterns match, body is executed. When an expression doesn't match, its value is returned.
+```elixir
+with
+  pattern <- expression
+  pattern <- expression
+  # ...
+do
+  body
+end
+```
+```elixir
+def show_price(name, price) do
+  with
+    {:ok, person} <- Customer.find(name),
+    {:ok, category} <- Customer.categorise(person),
+    {:ok, discount} <- Pricing.discount(category)
+  do
+    {:ok, price * (1.0 - discount)}
+  end
+end
+```
+
+
+
+
+
+
+
+
+
 
