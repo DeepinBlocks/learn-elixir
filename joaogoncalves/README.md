@@ -651,3 +651,9 @@ GifGenerator.hello
 ![avatar](./imgs/appanatomy.png)
 
 
+## Import Dependencies
+```
+mix deps.get
+mix deps.compile
+iex -S mix
+```
