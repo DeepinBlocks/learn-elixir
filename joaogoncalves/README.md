@@ -657,3 +657,5 @@ mix deps.get
 mix deps.compile
 iex -S mix
 ```
+
+## Tests
