@@ -608,7 +608,28 @@ end
 ![avatar](./imgs/ioansi.png)
 
 
-
+## Files
+### The File Module
+Most of these functions are the same as the commands we'd use on *NIX command line.
+![avatar](./imgs/filemodule.png)
+### Creating a Directory
+```elixir
+File.mkdir("notes/today")
+File.write("notes/today/one.txt", "Hello")
+File.read("notes/today/one.txt")
+File.rm("notes/today/one.txt")
+```
+### Open + Close
+Use this principle when doing a lot of IO operation on a file.
+```elixir
+def write_list(path, list) do
+  with {:ok, file} <- File.open(path, [:write, :utf8]) do
+    list
+      |> Enum.each(fn(line) -> IO.write(file, line) end)
+    File.close(file)
+  end
+end
+```
 
 
 
